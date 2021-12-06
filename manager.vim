@@ -7,4 +7,5 @@ source ~/.vim/myscript/cpp_check.vim
 let s:file_suffix = expand( "%:e" )
 if Is_cpp_head_file( s:file_suffix ) || Is_cpp_source_file( s:file_suffix )
     source ~/.vim/myscript/open_h_cpp.vim
+    source ~/.vim/myscript/generate_cpp.vim
 endif
