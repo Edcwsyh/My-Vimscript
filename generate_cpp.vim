@@ -1,6 +1,7 @@
 "生成C++类定义
 "Create Time : 2021-12-06 by Edcwsyh
-func s:Generate_cpp( className )
+"Update Time : 2021-02-24 by Edcwsyh : 支持默认参数：文件名
+func s:Generate_cpp( className=expand("%:r") )
     call append(line(".")+0, "")
     call append(line(".")+1, "class ".a:className." {")
     call append(line(".")+2, "//Type")
@@ -19,8 +20,8 @@ func s:Generate_cpp( className )
     call append(line(".")+15, "//Member Function")
     call append(line(".")+16, "public:")
     call append(line(".")+17, "    ".a:className."() = default;")
-    call append(line(".")+18, "    ".a:className."( ".a:className."& ) = default;")
-    call append(line(".")+19, "    ".a:className."( ".a:className."&& ) = default;")
+    call append(line(".")+18, "    explicit ".a:className."( ".a:className."& ) = default;")
+    call append(line(".")+19, "    explicit ".a:className."( ".a:className."&& ) = default;")
     call append(line(".")+20, "    ~".a:className."() = default;")
     call append(line(".")+21, "    ".a:className."& operator=( ".a:className."& ) = default;")
     call append(line(".")+22, "    ".a:className."& operator=( ".a:className."&& ) = default;")
@@ -30,4 +31,4 @@ func s:Generate_cpp( className )
     call append(line(".")+26, "};")
 endfunc
 
-command -nargs=1 Gencpp : call s:Generate_cpp(<f-args>)
+command -nargs=? Gencpp : call s:Generate_cpp(<f-args>)
