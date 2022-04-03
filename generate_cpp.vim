@@ -1,6 +1,7 @@
 "生成C++类定义
 "Create Time : 2021-12-06 by Edcwsyh
-"Update Time : 2021-02-24 by Edcwsyh : 支持默认参数：文件名
+"Update Time : 2022-02-24 by Edcwsyh : 支持默认参数：文件名
+"Update Time : 2022-04-03 by Edcwsyh : 修复生成的C++类模板代码复制构造函数和复制函数形参未加const关键字的问题
 func s:Generate_cpp( className=expand("%:r") )
     call append(line(".")+0, "")
     call append(line(".")+1, "class ".a:className." {")
@@ -20,10 +21,10 @@ func s:Generate_cpp( className=expand("%:r") )
     call append(line(".")+15, "//Member Function")
     call append(line(".")+16, "public:")
     call append(line(".")+17, "    ".a:className."() = default;")
-    call append(line(".")+18, "    explicit ".a:className."( ".a:className."& ) = default;")
+    call append(line(".")+18, "    explicit ".a:className."( const ".a:className."& ) = default;")
     call append(line(".")+19, "    explicit ".a:className."( ".a:className."&& ) = default;")
     call append(line(".")+20, "    ~".a:className."() = default;")
-    call append(line(".")+21, "    ".a:className."& operator=( ".a:className."& ) = default;")
+    call append(line(".")+21, "    ".a:className."& operator=( const ".a:className."& ) = default;")
     call append(line(".")+22, "    ".a:className."& operator=( ".a:className."&& ) = default;")
     call append(line(".")+23, "//Static Member Function")
     call append(line(".")+24, "public:")
