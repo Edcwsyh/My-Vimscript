@@ -14,3 +14,11 @@ if Is_cpp_head_file( s:file_suffix ) || Is_cpp_source_file( s:file_suffix )
     "生成c++类
     source ~/.vim/myscript/generate_cpp.vim
 endif
+
+if s:file_suffix == "proto"
+    source ~/.vim/myscript/GenFromProtobuf.vim
+endif
+
+source ~/.vim/myscript/best.vim
+source ~/.vim/myscript/switchbuf.vim
+source ~/.vim/myscript/FileSuffixMgr.vim
