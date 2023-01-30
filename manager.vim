@@ -19,6 +19,4 @@ if s:file_suffix == "proto"
     source ~/.vim/myscript/GenFromProtobuf.vim
 endif
 
-source ~/.vim/myscript/best.vim
-source ~/.vim/myscript/switchbuf.vim
 source ~/.vim/myscript/FileSuffixMgr.vim
