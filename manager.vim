@@ -15,8 +15,6 @@ source ~/.vim/myscript/GenWarpper.vim
 
 source ~/.vim/myscript/GenFromProtobuf.vim
 
-source ~/.vim/myscript/best.vim
-source ~/.vim/myscript/switchbuf.vim
 source ~/.vim/myscript/FileSuffixMgr.vim
 source ~/.vim/myscript/Line.vim
 
