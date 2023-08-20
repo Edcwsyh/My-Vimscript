@@ -116,3 +116,5 @@ endfunc
 
 autocmd BufNewFile * exec ":call s:SuffixHandle(expand(\"%:e\"))"
 autocmd BufNewfile * normal G
+
+command -nargs=? FileHeadGen : call s:SuffixHandle(<f-args>)
