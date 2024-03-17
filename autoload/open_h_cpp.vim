@@ -38,7 +38,7 @@ func s:File_conversion( openCmd )
         call s:Translate_into_cpp_head( l:file_name, openCmd )
         return
     endif
-    echo 'This file is neither cpp header nor cpp_source! file name : ' + expand( "%" )
+    echo 'This file is neither cpp header or cpp_source! file name : '. expand( "%" )
 endfunc
 
 command Cvc : call s:File_conversion("vs ")

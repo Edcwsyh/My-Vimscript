@@ -1,5 +1,3 @@
-source ~/.vim/myscript/NameCovert.vim
-
 let function_list = {
     \ 'hpp' : "HandleHpp()", 
     \ 'h'   : "HandleH()", 
