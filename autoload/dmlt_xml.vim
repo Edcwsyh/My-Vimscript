@@ -35,9 +35,9 @@ function! GenerateIdAndMacro()
 
         let unique_value = GetUniqueValue()
         " 插入 macro 标签
-        let macro_line = '    <macro name="' . id . '" value="' . unique_value . '" desc="' . desc . '" />'
+        let macro_line = '	<macro name="' . id . '" value="' . unique_value . '" desc="' . desc . '" />'
         call append(line('.') - 1, macro_line)
-        let struct_end_line = '    </struct>'
+        let struct_end_line = '	</struct>'
         call append(line('.'), struct_end_line)
     else
         echohl WarningMsg
@@ -46,4 +46,14 @@ function! GenerateIdAndMacro()
     endif
 endfunction
 
+function! ConvertXmlStructEntry()
+    " 执行当前行的替换命令
+    let l:line = getline('.')
+    let l:modified = substitute(l:line, '<struct name="\(CS\|SS\)\([^"]*\)"\(.*\)version="1"\(.*\)>', '<entry name="\2" type="\1\2"\3\4/>', '')
+    if l:modified !=# l:line
+        call setline('.', l:modified)
+    endif
+endfunction
+
+command! Gxmlc call ConvertXmlStructEntry()
 command -nargs=? Gxmlp : call GenerateIdAndMacro()
