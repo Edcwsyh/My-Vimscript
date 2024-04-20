@@ -14,7 +14,8 @@ func GetBaseInfo()
     let BaseInfo = [
         \ '> File Name : '.expand("%:t"), 
         \ '> Author : Edcwsyh', 
-        \ '> Create time : '.strftime("%c")
+        \ '> Create time : '.strftime("%c"), 
+        \ '> Desc : '
     \]
     return BaseInfo
 endfunc
