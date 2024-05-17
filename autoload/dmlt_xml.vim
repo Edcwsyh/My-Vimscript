@@ -2,15 +2,17 @@
 "
 
 function! GetUniqueValue()
+    let number_dict = ['11001', '11002'] " 定义局部变量
     let max_value = -1
     let current_line = 1
     let last_line = line('$')
 
     while current_line <= last_line
         let line = getline(current_line)
+
         if line =~# '<macro'
             let value = substitute(line, '.*value="\([^"]*\)".*', '\1', '')
-            if value =~? '^\d\+$'
+            if value =~? '^\d\+$' && index(number_dict, value) == -1
                 let max_value = max([max_value, str2nr(value)])
             endif
         endif
