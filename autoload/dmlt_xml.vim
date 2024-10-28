@@ -2,7 +2,7 @@
 "
 
 function! GetUniqueValue()
-    let number_dict = ['11001', '11002'] " 定义局部变量
+    let number_dict = ['11001', '11002', '102400'] " 定义局部变量
     let max_value = -1
     let current_line = 1
     let last_line = line('$')
