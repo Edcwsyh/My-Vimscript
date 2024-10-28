@@ -1,5 +1,10 @@
-"调用easycode.sh 生成消息ID到对应文件当中
-"需要保证easycode.sh被软链到可执行路径列表
+" vimscript
+"> File Name : GenFromProtobuf.vim
+"> Author : Edcwsyh
+"> Create time : 2022年05月23日 星期一 23时51分38秒
+"> Desc : 
+"           调用easycode.sh 生成消息ID到对应文件当中
+"           需要保证easycode.sh被软链到可执行路径列表
 
 let g:main_bufnr = 0
 
